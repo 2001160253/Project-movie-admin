@@ -1,0 +1,16 @@
+.container-fluid {
+  padding: 0;
+  box-sizing: border-box;
+  .wrapper {
+    width: 100%;
+    padding: 30px 60px;
+    h3 {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    .ant-table-wrapper {
+      border: 1px solid #e0e0e0;
+      padding: 10px;
+    }
+  }
+}

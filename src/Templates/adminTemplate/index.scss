@@ -1,0 +1,16 @@
+.Slidebar {
+  width: 10%;
+  background-color: #001529;
+  color: #fff;
+  min-height: 100vh;
+  .ul {
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    list-style-type: none;
+    padding: 20px 40px;
+    li {
+      margin-bottom: 10px;
+    }
+  }
+}
