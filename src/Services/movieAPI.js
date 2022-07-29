@@ -42,5 +42,8 @@ const movieAPI = {
       },
     });
   },
+  accountUser: (info) => {
+    return axiosClient.post("QuanLyNguoiDung/DangNhap", info);
+  },
 };
 export default movieAPI;

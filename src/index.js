@@ -6,6 +6,7 @@ import App from "./App";
 import store from "./store";
 import HomeTemplates from "./Templates/adminTemplate";
 import AddFilm from "./pages/addFilm/addFilm";
+import Signin from "./components/Signin";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -14,6 +15,7 @@ root.render(
       <Routes>
         <Route path="/" element={<App />} />
         <Route path="/them" element={<AddFilm />} />
+        <Route path="signin" element={<Signin />} />
       </Routes>
     </BrowserRouter>
   </Provider>
