@@ -63,5 +63,8 @@ const movieAPI = {
       `/QuanLyNguoiDung/LayDanhSachNguoiDung?MaNhom=${maNhom}`
     );
   },
+  accountUser: (info) => {
+    return axiosClient.post("QuanLyNguoiDung/DangNhap", info);
+  },
 };
 export default movieAPI;

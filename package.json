@@ -10,10 +10,15 @@
     "@testing-library/user-event": "^13.5.0",
     "antd": "^4.21.7",
     "axios": "^0.27.2",
+<<<<<<< HEAD
     "formik": "^2.2.9",
+=======
+    "node-module": "^2.0.0",
+>>>>>>> a7702ee56487545651c84a4a4a7db4bdc4d08531
     "node-sass": "^7.0.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-hook-form": "^7.34.0",
     "react-icons": "^4.4.0",
     "react-player": "^2.10.1",
     "react-redux": "^8.0.2",
