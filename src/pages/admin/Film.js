@@ -8,6 +8,9 @@ import { Link, NavLink } from "react-router-dom";
 import HomeTemplates from "../../Templates/adminTemplate/index";
 import "./Film.scss";
 import { DeleteOutlined, EditOutlined } from "@ant-design/icons";
+import { deleteFilm } from "../../reducers/deleteFilm";
+import { AudioOutlined } from "@ant-design/icons";
+import { Input, Space } from "antd";
 
 function Film() {
   const { listFilm } = useSelector((state) => state.listFilm);
@@ -15,7 +18,7 @@ function Film() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getLayDanhSachPhim("gp01"));
+    dispatch(getLayDanhSachPhim());
   }, []);
 
   const columns = [
@@ -85,12 +88,21 @@ function Film() {
       render: (text, obj) => {
         return (
           <Fragment>
-            <Link to="/them">
+            <Link key={1} to={`/film/editFilm/${obj.maPhim}`}>
               <EditOutlined style={{ marginRight: "10px" }} />
             </Link>
-            <Link to="/them">
+            <span
+              style={{ cursor: "pointer" }}
+              key={2}
+              to="/"
+              onClick={() => {
+                if (window.confirm("Ban co muon xoa" + obj.tenPhim)) {
+                  dispatch(deleteFilm(obj.maPhim));
+                }
+              }}
+            >
               <DeleteOutlined style={{ color: "red" }} />
-            </Link>
+            </span>
           </Fragment>
         );
       },
@@ -100,17 +112,40 @@ function Film() {
   const onChange = (pagination, filters, sorter, extra) => {
     console.log("params", pagination, filters, sorter, extra);
   };
+  const { Search } = Input;
+
+  const onSearch = (value) => {
+    dispatch(getLayDanhSachPhim(value));
+    console.log(value);
+  };
+
   return (
     <div>
       <div className="container-fluid d-flex">
         <HomeTemplates></HomeTemplates>
         <div className="wrapper">
           <h3 className="text-4xl">Quản Lý Phim</h3>
-          <Link to="/them">
-            <Button style={{ marginBottom: "10px" }}>Thêm phim</Button>
-          </Link>
 
-          <Table columns={columns} dataSource={data} onChange={onChange} />
+          <div style={{ display: "flex", justifyContent: "space-between" }}>
+            <Link to="/Film/addFilm">
+              <Button style={{ marginBottom: "10px" }}>Thêm phim</Button>
+            </Link>
+
+            <Space direction="vertical">
+              <Search
+                placeholder="input search text"
+                onSearch={onSearch}
+                style={{ width: 200 }}
+              />
+            </Space>
+          </div>
+
+          <Table
+            columns={columns}
+            dataSource={data}
+            onChange={onChange}
+            rowKey={"maPhim"}
+          />
         </div>
       </div>
     </div>

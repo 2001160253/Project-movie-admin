@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,SAAS,CAAC;EACR,KAAK,EAAE,GAAG;EACV,gBAAgB,EAAE,OAAO;EACzB,KAAK,EAAE,IAAI;EACX,UAAU,EAAE,KAAK;CAWlB;;AAfD,AAKE,SALO,CAKP,GAAG,CAAC;EACF,OAAO,EAAE,IAAI;EACb,cAAc,EAAE,MAAM;EACtB,eAAe,EAAE,IAAI;EACrB,eAAe,EAAE,IAAI;EACrB,OAAO,EAAE,SAAS;CAInB;;AAdH,AAWI,SAXK,CAKP,GAAG,CAMD,EAAE,CAAC;EACD,aAAa,EAAE,IAAI;CACpB",
+    "sources": [
+        "../src/Templates/adminTemplate/index.scss"
+    ],
+    "names": [],
+    "file": "index.css"
+}

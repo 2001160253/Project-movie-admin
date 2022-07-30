@@ -1,5 +1,5 @@
 import axiosClient from "./axiosClient";
-
+const maNhom = "GP01";
 const movieAPI = {
   getMovieShowing: (moviePage) => {
     return axiosClient.get("QuanLyPhim/LayDanhSachPhimPhanTrang", {
@@ -35,12 +35,33 @@ const movieAPI = {
     });
   },
 
-  getLayDanhSachPhim: (maNhom) => {
-    return axiosClient.get("QuanLyPhim/LayDanhSachPhim", {
-      params: {
-        maNhom: maNhom,
-      },
-    });
+  getLayDanhSachPhim: (tenPhim = "") => {
+    if (tenPhim.trim() != "") {
+      return axiosClient.get(
+        `QuanLyPhim/LayDanhSachPhim?maNhom=${maNhom}&tenPhim=${tenPhim}`
+      );
+    }
+    return axiosClient.get(`/QuanLyPhim/LayDanhSachPhim?maNhom=${maNhom}`);
+  },
+  themPhimUpLoadHinh: (data) => {
+    return axiosClient.post("QuanLyPhim/ThemPhimUploadHinh", data);
+  },
+  capNhatPhimUpLoadHinh: (data) => {
+    return axiosClient.post("QuanLyPhim/CapNhatPhimUpload", data);
+  },
+  deleteFilm: (maPhim) => {
+    return axiosClient.delete(`QuanLyPhim/XoaPhim?MaPhim=${maPhim}`);
+  },
+
+  LayDanhSachnguoiDung: (account = "") => {
+    if (account.trim() != "") {
+      return axiosClient.get(
+        `QuanLyNguoiDung/LayDanhSachNguoiDung?MaNhom=${maNhom}&tuKhoa=${account}`
+      );
+    }
+    return axiosClient.get(
+      `/QuanLyNguoiDung/LayDanhSachNguoiDung?MaNhom=${maNhom}`
+    );
   },
 };
 export default movieAPI;

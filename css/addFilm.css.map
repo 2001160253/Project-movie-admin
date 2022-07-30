@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,gBAAgB,CAAC;EACf,OAAO,EAAE,CAAC;EACV,UAAU,EAAE,UAAU;CASvB;;AAXD,AAGE,gBAHc,CAGd,QAAQ,CAAC;EACP,KAAK,EAAE,IAAI;EACX,OAAO,EAAE,SAAS;CAKnB;;AAVH,AAMI,gBANY,CAGd,QAAQ,CAGN,EAAE,CAAC;EACD,UAAU,EAAE,MAAM;EAClB,aAAa,EAAE,IAAI;CACpB",
+    "sources": [
+        "../src/pages/addFilm/addFilm.scss"
+    ],
+    "names": [],
+    "file": "addFilm.css"
+}
