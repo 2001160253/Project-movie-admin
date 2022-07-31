@@ -58,7 +58,11 @@ function EditFilm() {
         }
       }
 
-      dispatch(capNhatPhimUpLoadHinh(formData));
+      if (dispatch(capNhatPhimUpLoadHinh(formData))) {
+        alert("Cap nhat thanh cong");
+      } else {
+        alert("Cap nhat that bai");
+      }
     },
   });
 
