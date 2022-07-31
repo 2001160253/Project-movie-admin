@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
 import { Navigate } from "react-router-dom";
 import { userLoginActive } from "../../reducers/signin";
+import ModalSuccess from "../modals/ModalSuccess";
 import {
   Container,
   ContainerLogin,
@@ -41,14 +42,14 @@ const Signin = () => {
   };
   return (
     <Container>
-      {userLogin && <Navigate to="/" replacet={true} />}
+      {userLogin && <ModalSuccess />}
       <ContainerLogin>
         <CLogin>
           <Form onSubmit={handleSubmit(onSubmit)}>
             <CClose to="/">
               <Close />
             </CClose>
-            <Titile>Login In Using Email</Titile>
+            <Titile>Login Admin</Titile>
             <LoginName>
               <LogoLogin />
               <Name
@@ -83,7 +84,7 @@ const Signin = () => {
                   pattern: {
                     value: /^[a-zA-Z0-9]{6,}$/,
                     message:
-                      "Mật khẩu gom các kí tự hoa, thường, số và ít nhất 6 kí tự",
+                      "Mật khẩu gồm các kí tự hoa, thường, số và ít nhất 6 kí tự",
                   },
                 })}
               />
@@ -92,9 +93,6 @@ const Signin = () => {
               )}
             </LoginPassword>
             <Button>Login</Button>
-            <Footer>
-              Don't have taiKhoan yet?<SingUp to="/signup"> Signup now</SingUp>
-            </Footer>
           </Form>
         </CLogin>
       </ContainerLogin>

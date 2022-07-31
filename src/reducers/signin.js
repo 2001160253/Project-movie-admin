@@ -1,4 +1,5 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import ModalSuccess from "../components/modals/ModalSuccess";
 import movieAPI from "../Services/movieAPI";
 let user = null;
 if (localStorage.getItem("userAdmin")) {
@@ -30,13 +31,12 @@ const userSlice = createSlice({
       if (payload.maLoaiNguoiDung === "QuanTri") {
         state.userLogin = payload;
         localStorage.setItem("userAdmin", JSON.stringify(payload));
-        alert("Login Success");
       } else {
         alert("Bạn không Có quyền truy cập trang này");
       }
     },
-    [userLoginActive.rejected]: () => {
-      alert("Tai khoan mat khau khong chinh xac!");
+    [userLoginActive.rejected]: (state, { payload }) => {
+      alert("Tài khoản hoặc mật khẩu không chính xác");
     },
   },
 });
