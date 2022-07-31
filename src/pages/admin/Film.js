@@ -100,8 +100,9 @@ function Film() {
               key={2}
               to="/"
               onClick={() => {
-                if (window.confirm("Ban co muon xoa" + obj.tenPhim)) {
+                if (window.confirm("Ban co muon xoa " + obj.tenPhim)) {
                   dispatch(deleteFilm(obj.maPhim));
+                  dispatch(getLayDanhSachPhim());
                 }
               }}
             >
