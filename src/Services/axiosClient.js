@@ -11,7 +11,7 @@ const axiosClient = axios.create({
 
 axiosClient.interceptors.request.use((config) => {
   if (config.headers) {
-    const accessToken = store.getState().login?.accessToken || {};
+    const { accessToken } = store.getState().login?.userLogin || {};
     if (accessToken) {
       config.headers.Authorization = `Bearer ${accessToken}`;
     }
