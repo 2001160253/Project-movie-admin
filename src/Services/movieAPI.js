@@ -34,6 +34,16 @@ const movieAPI = {
       },
     });
   },
+  getListTheater: () => {
+    return axiosClient.get("QuanLyRap/LayThongTinHeThongRap");
+  },
+  getListTheaterInfo: (theater) => {
+    return axiosClient.get("QuanLyRap/LayThongTinCumRapTheoHeThong", {
+      params: {
+        maHeThongRap: theater,
+      },
+    });
+  },
 
   getLayDanhSachPhim: (tenPhim = "") => {
     if (tenPhim.trim() != "") {
@@ -65,6 +75,10 @@ const movieAPI = {
   },
   accountUser: (info) => {
     return axiosClient.post("QuanLyNguoiDung/DangNhap", info);
+  },
+
+  createShowTimeTheater: (data) => {
+    return axiosClient.post("QuanLyDatVe/TaoLichChieu", data);
   },
 };
 export default movieAPI;

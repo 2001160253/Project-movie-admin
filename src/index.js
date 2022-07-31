@@ -11,6 +11,7 @@ import Film from "./pages/admin/Film";
 import User from "./pages/UserManagement/admin/User";
 import AddUser from "./pages/UserManagement/addUser/AddUser";
 import Signin from "./components/Signin";
+import ShowTime from "./pages/ShowTime";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -22,6 +23,7 @@ root.render(
         <Route path="/user" element={<User />} />
         <Route path="/user/addUser" element={<AddUser />} />
         <Route path="/film/editFilm/:id" element={<EditFilm />} />
+        <Route path="/film/showtime/:id/:tenPhim" element={<ShowTime />} />
         <Route path="signin" element={<Signin />} />
       </Routes>
     </BrowserRouter>

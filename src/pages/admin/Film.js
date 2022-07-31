@@ -7,7 +7,11 @@ import { getLayDanhSachPhim } from "../../reducers/listFilm";
 import { Link, NavLink } from "react-router-dom";
 import HomeTemplates from "../../Templates/adminTemplate/index";
 import "./Film.scss";
-import { DeleteOutlined, EditOutlined } from "@ant-design/icons";
+import {
+  DeleteOutlined,
+  EditOutlined,
+  CalendarOutlined,
+} from "@ant-design/icons";
 import { deleteFilm } from "../../reducers/deleteFilm";
 import { AudioOutlined } from "@ant-design/icons";
 import { Input, Space } from "antd";
@@ -103,6 +107,17 @@ function Film() {
             >
               <DeleteOutlined style={{ color: "red" }} />
             </span>
+            <NavLink
+              key={1}
+              to={`/film/showtime/${obj.maPhim}/${obj.tenPhim}`}
+              onClick={() => {
+                localStorage.setItem("filmParams", JSON.stringify(obj));
+              }}
+            >
+              <CalendarOutlined
+                style={{ marginLeft: "10px", color: "green" }}
+              />
+            </NavLink>
           </Fragment>
         );
       },
