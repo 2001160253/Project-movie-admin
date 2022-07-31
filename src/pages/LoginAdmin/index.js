@@ -28,9 +28,9 @@ const LoginAdmin = ({ showModal, setShowModal }) => {
           >
             Bạn chưa đăng nhập !
             <br />
-            taiKhoanAdmin: nguyenlam
+            taiKhoanAdmin: 4Hoangvuasdf132
             <br />
-            matKhau:123456789
+            matKhau:h4521369
             <br />
             <small>Bạn có muốn đăng nhập không ?</small>
           </ModalLogin>
