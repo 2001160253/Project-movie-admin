@@ -1,5 +1,5 @@
 import axios from "axios";
-
+import store from "../store";
 // setup cau hinh mac dinh cho axios
 const axiosClient = axios.create({
   baseURL: "https://movienew.cybersoft.edu.vn/api",
@@ -9,6 +9,15 @@ const axiosClient = axios.create({
   },
 });
 
+axiosClient.interceptors.request.use((config) => {
+  if (config.headers) {
+    const accessToken = store.getState().login?.accessToken || {};
+    if (accessToken) {
+      config.headers.Authorization = `Bearer ${accessToken}`;
+    }
+  }
+  return config;
+});
 axiosClient.interceptors.response.use((reponse) => {
   return reponse.data.content;
 });
