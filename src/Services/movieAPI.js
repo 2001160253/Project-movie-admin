@@ -73,6 +73,25 @@ const movieAPI = {
       `/QuanLyNguoiDung/LayDanhSachNguoiDung?MaNhom=${maNhom}`
     );
   },
+  addUser: (userInfo) => {
+    return axiosClient.post("QuanLyNguoiDung/ThemNguoiDung", userInfo);
+  },
+  getInofUser: (account) => {
+    return axiosClient.post(
+      `QuanLyNguoiDung/LayThongTinNguoiDung?taiKhoan=${account}`
+    );
+  },
+  updateInfoUser: (infoUser) => {
+    return axiosClient.post(
+      "QuanLyNguoiDung/CapNhatThongTinNguoiDung",
+      infoUser
+    );
+  },
+  deleteUser: (account) => {
+    return axiosClient.delete(
+      `QuanLyNguoiDung/XoaNguoiDung?TaiKhoan=${account}`
+    );
+  },
   accountUser: (info) => {
     return axiosClient.post("QuanLyNguoiDung/DangNhap", info);
   },

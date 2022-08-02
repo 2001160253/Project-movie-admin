@@ -3,6 +3,7 @@ import movieAPI from "../Services/movieAPI";
 
 const inititalState = {
   listUser: [],
+  infoUser: {},
 };
 
 export const LayDanhSachnguoiDung = createAsyncThunk(
@@ -12,6 +13,25 @@ export const LayDanhSachnguoiDung = createAsyncThunk(
     return data;
   }
 );
+export const addUser = createAsyncThunk(
+  "listUser/addUser",
+  async (userInfo) => {
+    return await movieAPI.addUser(userInfo);
+  }
+);
+
+export const updateInfoUser = createAsyncThunk(
+  "listUser/updateInfoUser",
+  async (userInfo) => {
+    return await movieAPI.updateInfoUser(userInfo);
+  }
+);
+export const deleteUser = createAsyncThunk(
+  "listUser/deleteUser",
+  async (account) => {
+    return await movieAPI.deleteUser(account);
+  }
+);
 const listUser = createSlice({
   name: "listUser",
   initialState: inititalState,
@@ -19,6 +39,19 @@ const listUser = createSlice({
   extraReducers: {
     [LayDanhSachnguoiDung.fulfilled]: (state, { payload }) => {
       state.listUser = payload;
+    },
+    [addUser.fulfilled]: (state, { payload }) => {
+      alert("Đăng ký thành công");
+    },
+    [addUser.rejected]: (state, { payload }) => {
+      alert("Tài khoản hoặc email đã tồn tại!");
+    },
+
+    [updateInfoUser.fulfilled]: (state, { payload }) => {
+      alert("Cập nhật thành công");
+    },
+    [updateInfoUser.rejected]: (state, { payload }) => {
+      alert(payload);
     },
   },
 });
