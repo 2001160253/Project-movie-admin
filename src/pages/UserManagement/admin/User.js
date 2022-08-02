@@ -3,8 +3,8 @@ import { Table } from "antd";
 import "antd/dist/antd.css";
 import { Button } from "antd";
 import { useSelector, useDispatch } from "react-redux";
-import { LayDanhSachnguoiDung } from "../../../reducers/listUser";
-import { Link, NavLink } from "react-router-dom";
+import { deleteUser, LayDanhSachnguoiDung } from "../../../reducers/listUser";
+import { NavLink } from "react-router-dom";
 import HomeTemplates from "../../../Templates/adminTemplate/index";
 import "./User.scss";
 import { DeleteOutlined, EditOutlined } from "@ant-design/icons";
@@ -64,16 +64,19 @@ function User() {
       render: (text, obj) => {
         return (
           <Fragment>
-            <Link key={1} to={`/film/editFilm/${obj.maPhim}`}>
+            <NavLink key={1} to={`/user/editUser/${obj.taiKhoan}`}>
               <EditOutlined style={{ marginRight: "10px" }} />
-            </Link>
+            </NavLink>
             <span
               style={{ cursor: "pointer" }}
               key={2}
               to="/"
               onClick={() => {
-                if (window.confirm("Ban co muon xoa" + obj.tenPhim)) {
-                  // dispatch(deleteFilm(obj.maPhim));
+                if (
+                  window.confirm("Bạn có muốn xóa Tài khoản: " + obj.taiKhoan)
+                ) {
+                  dispatch(deleteUser(obj.taiKhoan));
+                  dispatch(LayDanhSachnguoiDung());
                 }
               }}
             >
@@ -92,9 +95,9 @@ function User() {
           <h3 className="text-4xl">Quản Lý User</h3>
 
           <div style={{ display: "flex", justifyContent: "space-between" }}>
-            <Link to="/user/addUser">
+            <NavLink to="/user/addUser">
               <Button style={{ marginBottom: "10px" }}>Thêm người dùng</Button>
-            </Link>
+            </NavLink>
 
             <Space direction="vertical">
               <Search
