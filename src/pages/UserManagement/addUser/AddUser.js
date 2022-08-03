@@ -176,7 +176,7 @@ function AddUser({ edit, infoUser, disabled, type }) {
             <Select
               name="maLoaiNguoiDung"
               options={converDataType()}
-              defaultValue={dataType[type || null]}
+              defaultValue={dataType[type]}
               onBlur={formik.handleBlur}
               onChange={handleChangeType}
             />

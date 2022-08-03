@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect } from "react";
+import React, { Fragment, useEffect, useRef } from "react";
 import { Table } from "antd";
 import "antd/dist/antd.css";
 import { Button } from "antd";
@@ -14,12 +14,15 @@ import { Input, Space } from "antd";
 
 function User() {
   const { listUser } = useSelector((state) => state.listUser);
-
   const dispatch = useDispatch();
-
+  const isRef = useRef(false);
   useEffect(() => {
-    dispatch(LayDanhSachnguoiDung());
-  }, []);
+    if (!isRef.current) {
+      isRef.current = true;
+      dispatch(LayDanhSachnguoiDung());
+      return;
+    }
+  }, [listUser]);
   const { Search } = Input;
 
   const onSearch = (value) => {
