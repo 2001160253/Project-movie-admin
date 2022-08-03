@@ -53,6 +53,11 @@ const listUser = createSlice({
     [updateInfoUser.rejected]: (state, { payload }) => {
       alert(payload);
     },
+    [deleteUser.rejected]: () => {
+      alert(
+        "Tài khoản đã quá cổ lên không thể xóa!Mời bạn tạo thêm người dùng"
+      );
+    },
   },
 });
 export default listUser.reducer;
